@@ -26,6 +26,7 @@ public class SavegameManager : MonoBehaviour
 
             byte[] encryptedMessage = Encrypt(jSaveGame.ToString());
             File.WriteAllBytes(filePath, encryptedMessage);
+            Debug.Log("Archivos guardados.");
         }
 
         if (Input.GetKeyDown(KeyCode.L))
