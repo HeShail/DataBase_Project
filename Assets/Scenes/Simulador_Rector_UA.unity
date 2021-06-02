@@ -4684,7 +4684,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\tPara observar los detalles de todos los solicitantes en consola, pulse
-    la tecla S de \"save\" para guardar los archivos grabados.\n\n\tActo seguido,
+    la tecla S de \"save\" para guardar los archivos pregrabados.\n\n\tActo seguido,
     pulse la tecla L de \"load\" para cargar en consola los datos de los alumnos.\n\n\t\t        
     INFO\n\tSistema de consulta -> JSON\n\tSistema de admisi\xF3n-> SQLite"
   m_isRightToLeft: 0

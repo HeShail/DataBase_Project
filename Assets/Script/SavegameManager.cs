@@ -5,7 +5,7 @@ using System.IO;
 using System.Security.Cryptography;
 using UnityEngine;
 
-//Clase encargada de manejar la base de datos en formato JSON.
+//Clase encargada de estructurar el sistema de guardado JSON.
 public class SavegameManager : MonoBehaviour
 {
     public Estudiante [] estudiantes;
