@@ -9,6 +9,7 @@ public class DataBase : MonoBehaviour
 {
     private string nombreDB = "URI=file:Candidatos.db";
     public Animator anim;
+    public GameObject botonMostrar;
     public TextMeshProUGUI nombreHero;
     public TextMeshProUGUI donHero;
     public TextMeshProUGUI alturaHero;
@@ -80,6 +81,7 @@ public class DataBase : MonoBehaviour
                 connection.Close();
             }
         }
+        botonMostrar.SetActive(false);
     }
 
     public void MostrarCarta()
@@ -94,11 +96,12 @@ public class DataBase : MonoBehaviour
         if (i < lista.Length)
         {
             AgregarAlumno(lista[i].nombre, lista[i].don, lista[i].estatura_cm, lista[i].notaAcceso, i);
-            if (i >= 8) i = 8;
+            if (i >= lista.Length-1) i = lista.Length - 1;
             else
             {
                 anim.SetTrigger("aprobar");
                 i++;
+                if (i == lista.Length-1) botonMostrar.SetActive(true);
             }
         }
         if (i < lista.Length) MostrarCarta();
@@ -112,6 +115,7 @@ public class DataBase : MonoBehaviour
             i++;
             anim.SetTrigger("rechazar");
             MostrarCarta();
+            if (i == lista.Length - 1) botonMostrar.SetActive(true);
         }
     }
 
