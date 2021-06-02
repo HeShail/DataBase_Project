@@ -5,10 +5,14 @@ using System.IO;
 using System.Security.Cryptography;
 using UnityEngine;
 
+//Clase encargada de manejar la base de datos en formato JSON.
 public class SavegameManager : MonoBehaviour
 {
     public Estudiante [] estudiantes;
 
+    /*Método iterativo que espera el trigger de pulsado de teclas S y L, para guardar
+    * y cargar los datos de los solicitantes a la Academia UA.
+    */
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
@@ -54,6 +58,7 @@ public class SavegameManager : MonoBehaviour
     byte[] _key = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16};
     byte[] _inicializationVector = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16 };
 
+    //Método encargado de encriptar los datos de los estudiantes que han solicitado matricula.
     byte[] Encrypt(string message)
     {
         AesManaged aes = new AesManaged();
@@ -72,6 +77,7 @@ public class SavegameManager : MonoBehaviour
         return memoryStream.ToArray();
     }
 
+    //Método que desencripta la información completa de los solicitantes y que al mismo tiempo devuelve en consola.
     string Decrypt(byte[] message)
     {
         AesManaged aes = new AesManaged();
